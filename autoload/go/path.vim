@@ -65,6 +65,43 @@ function! go#path#HasPath(path) abort
   return hasA || hasB
 endfunction
 
+function! go#path#findGoPathConfigFile(config_file) abort
+  let l:path = expand("%:p:h")
+  while l:path != ""
+    let l:filename = l:path."/".a:config_file
+    if filereadable(l:filename)
+      return l:filename
+    endif
+    let l:path = substitute(l:path, "/[^/]*$", "", "")
+  endwhile
+  return ""
+endfunction
+
+function! go#path#readGoPathFromFile(filename) abort
+  if a:filename != "" && filereadable(a:filename)
+    for l:line in readfile(a:filename)
+      let l:str = matchstr(l:line, "GOPATH=.*$")
+      if l:str != ""
+        return split(l:str, "=")[1]
+      endif
+    endfor
+  endif
+  return ""
+endfunction
+
+function! go#path#adjustGoPathFromConfigFile() abort
+  let l:config_file = get(g:, "go_gopath_config_file", "")
+  if l:config_file != ""
+    let l:filename = go#path#findGoPathConfigFile(l:config_file)
+    let l:config_path = go#path#readGoPathFromFile(l:filename)
+    if l:config_path != ""
+      let $GOPATH = l:config_path
+    endif
+  endif
+endfunction
+
+call go#path#adjustGoPathFromConfigFile()
+
 " Detect returns the current GOPATH. If a package manager is used, such as
 " Godeps, GB, it will modify the GOPATH so those directories take precedence
 " over the current GOPATH. It also detects diretories whose are outside
