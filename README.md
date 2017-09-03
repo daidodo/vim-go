@@ -27,7 +27,7 @@ This plugin adds Go language support for Vim, with the following main features:
 * Custom vim text objects such as `a function (af)` or `inner function (if)`
 * ... and many more! Please see [doc/vim-go.txt](doc/vim-go.txt) for more information.
 
-What's new in this project:
+## What's new in this project:
 * Add `g:go_gopath_config_file` in *.vimrc*, for example:
 ```
 let g:go_gopath_config_file="path/to/ConfigIncludingGoPath.conf"
