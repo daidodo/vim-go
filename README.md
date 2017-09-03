@@ -1,8 +1,8 @@
-# vim-go [![Build Status](http://img.shields.io/travis/fatih/vim-go.svg?style=flat-square)](https://travis-ci.org/fatih/vim-go)
-
 <p align="center">
   <img style="float: right;" src="assets/vim-go.png" alt="Vim-go logo"/>
 </p>
+
+This project is based on [vim-go](https://github.com/fatih/vim-go).
 
 ## Features
 
@@ -44,11 +44,11 @@ Vim-go follows the standard runtime path structure. Below are some helper lines
 for popular package managers:
 
 *  [Pathogen](https://github.com/tpope/vim-pathogen)
-    * `git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go`
+    * `git clone https://github.com/daidodo/vim-go-brazil.git ~/.vim/bundle/vim-go-brazil`
 *  [vim-plug](https://github.com/junegunn/vim-plug)
-    * `Plug 'fatih/vim-go'`
+    * `Plug 'daidodo/vim-go-brazil'`
 *  [Vim packages](http://vimhelp.appspot.com/repeat.txt.html#packages)
-    * `git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go`
+    * `git clone https://github.com/daidodo/vim-go-brazil.git ~/.vim/pack/plugins/start/vim-go-brazil`
 
 After installing, please install all necessary binaries. We have a handy
 command for it:
